@@ -11,8 +11,18 @@
   max-width: 250px;
 }
 
+/*CARD LAYOUT*/
 .container-custom {
   padding-top: 25px;
   padding-right: 25px;
   padding-left: 175px;
 }
+
+/*MENU STYLING*/
+.nav-link{
+  color: $menu-font-color !important;
+}
+
+.nav-link:hover{
+  color: $menu-font-color-hover !important;
+} 
