@@ -26,3 +26,21 @@
 .nav-link:hover{
   color: $menu-font-color-hover !important;
 } 
+
+/*FORM STYLING*/
+.card-small{
+  width: 750px;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+}
+
+.align-right{
+  text-align: right;
+  padding-top: 10px;
+}
+
+.field-required::before{
+ content: "* ";
+ color: red;
+}
