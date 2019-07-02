@@ -1,17 +1,25 @@
-<div class="card" *ngIf="$item | async as item; else notFound">
-  <div class="card-header">
-    Item: {{ item.name }}
-  </div>
-  <div class="card-body">
-    {{ item | json }}
-  </div>
-  <div class="card-footer">
-
-  </div>
-</div>
-
-<ng-template #notFound>
-  <div class="alert alert-danger">
-    Item not found
-  </div>
-</ng-template>
+    <div class="card card-small" *ngIf="$item | async as item; else notFound">
+      <div class="card-header">
+        <h5 class="card-title">Details: {{ item.name }}</h5>
+  
+      </div>
+      <div class="card-body">
+        <h5>Id:</h5>
+        <p>{{item.id}}</p>
+        <h5>Name:</h5>
+        <p>{{item.name}}</p>
+        <h5>Description:</h5>
+        <p>{{item.description}}</p>
+      </div>
+  
+      <div class="card-footer">
+        <button class="btn btn-danger" [routerLink]="['/items','overview']">Back</button>
+      </div>
+  
+    </div>
+  
+  <ng-template #notFound>
+    <div class="alert alert-danger">
+      Item not found
+    </div>
+  </ng-template>

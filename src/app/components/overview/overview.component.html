@@ -2,12 +2,80 @@
   <div class="card">
     <div class="card-header">
       <h1>Overview of the items</h1>
-      <a class="btn btn-transparent" [routerLink]="['/items','new']">New</a>
     </div>
-    <ul class="list-group" *ngFor="let item of $items | async">
-      <li class="list-group-item" (click)="onSelectItem(item.id)">{{ item | json }}</li>
+    <ul class="list-group list-group-flush" *ngFor="let item of $items | async, let idx = index">
+
+      <li class="list-group-item list-group-item-action">
+        <div class="row">
+          <div class="list-group-item-id">
+            {{item.id}}
+          </div>
+          <div class="list-separator">
+          </div>
+          <div class="col-md-1">
+            <div class="list-group-item-heading">
+              <h5>Name</h5>
+            </div>
+            <div class="list-group-item-text">
+              {{item.name}}
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="list-group-item-heading">
+              <h6>Description</h6>
+            </div>
+            <div class="list-group-item-text">
+              {{item.description}}
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="list-group-item-heading">
+              <h6>Created date</h6>
+            </div>
+            <div *ngIf="item.date">
+              {{item.date}}
+            </div>
+            <div *ngIf="!item.date">
+              -
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="list-group-item-heading">
+              <h6>Reference code</h6>
+            </div>
+            <div *ngIf="item.code">
+              {{item.code}}
+            </div>
+            <div *ngIf="!item.code">
+              -
+            </div>
+          </div>
+
+          <div class="col-md-2">
+
+            <button class="btn btn-outline-dark" (click)="onSelectItem(item.id)">View</button>
+                <span class="options-icon fa fa-ellipsis-v" data-toggle="dropdown" id="{{idx}}" (click)=" arrayShow[idx]=! arrayShow[idx]"></span>
+            <div class="dropdown">
+              <div [ngClass]=" arrayShow[idx] ? 'dropdown-menu show' : 'dropdown-menu'">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </li>
+
+
+
     </ul>
     <div class="card-footer">
+      <a class="btn btn-success button-right" [routerLink]="['/items','new']">New</a>
+
     </div>
   </div>
 </div>

@@ -13,7 +13,7 @@ import { DataService } from 'app/services/data';
 export class OverviewComponent implements OnInit {
 
   $items: Subject<DataItem[]> = new BehaviorSubject<DataItem[]>([]);
-
+  arrayShow : Array<Boolean> = [];
   constructor(
     private dataService: DataService,
     private router: Router,
