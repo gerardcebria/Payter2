@@ -18,6 +18,12 @@
   padding-left: 175px;
 }
 
+.card-small{
+  width: 775px;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+}
 /*MENU STYLING*/
 .nav-link{
   color: $menu-font-color !important;
@@ -28,12 +34,6 @@
 } 
 
 /*FORM STYLING*/
-.card-small{
-  width: 750px;
-  position: absolute;
-  top: 10%;
-  left: 30%;
-}
 
 .align-right{
   text-align: right;

@@ -6,11 +6,11 @@ import { delay } from 'rxjs/operators';
 import { DataItem } from '../../model';
 
 const MOCK_ITEMS: DataItem[] = [
-  { id: 1, name: 'item1', description: 'first item'},
-  { id: 2, name: 'second item', description: 'this item comes after the first item'},
-  { id: 3, name: 'another item', description: 'we have lots of items'},
-  { id: 23, name: 'bonus item', description: 'this item is extra'},
-  { id: 51, name: 'Bobi', description: '7 ft 3 Center for the Philadelphia 76ers'},
+  { id: 1, name: 'item1', description: 'first item', referenceCode: '0x23568949', createdDate: null},
+  { id: 2, name: 'second item', description: 'this item comes after the first item', referenceCode: '', createdDate: null},
+  { id: 3, name: 'another item', description: 'we have lots of items', referenceCode: '', createdDate: null},
+  { id: 23, name: 'bonus item', description: 'this item is extra', referenceCode: '', createdDate: null},
+  { id: 51, name: 'Bobi', description: '7 ft 3 Center for the Philadelphia 76ers', referenceCode: '', createdDate: null},
 ];
 
 @Injectable()

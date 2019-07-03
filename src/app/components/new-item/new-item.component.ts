@@ -29,7 +29,8 @@ export class NewItemComponent {
   private initForm(): FormGroup {
     return this.formBuilder.group({
       name: this.formBuilder.control(null, Validators.required),
-      description: this.formBuilder.control(null)
+      description: this.formBuilder.control(null),
+      referenceCode: this.formBuilder.control(null)
     });
   }
 
@@ -46,6 +47,8 @@ export class NewItemComponent {
     const newItem: DataItem = {
       name: value.name,
       description: value.description,
+      createdDate: new Date(),
+      referenceCode: value.referenceCode
     }
 
     console.log(value);

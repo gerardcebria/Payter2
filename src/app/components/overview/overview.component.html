@@ -93,30 +93,31 @@
               {{item.description}}
             </div>
           </div>
-          <!--Date field-->
-          <div class="col-md-2 col-sm-12">
-            <div class="list-group-item-heading">
-              <h6>Created date</h6>
-            </div>
-            <div *ngIf="item.date">
-              {{item.date}}
-            </div>
-            <div *ngIf="!item.date">
-              -
-            </div>
-          </div>
           <!--Reference field-->
           <div class="col-md-3 col-sm-12">
             <div class="list-group-item-heading">
               <h6>Reference code</h6>
             </div>
-            <div *ngIf="item.code">
-              {{item.code}}
+            <div *ngIf="item.referenceCode">
+              {{item.referenceCode}}
             </div>
-            <div *ngIf="!item.code">
+            <div *ngIf="!item.referenceCode">
               -
             </div>
           </div>
+          <!--Date field-->
+          <div class="col-md-2 col-sm-12">
+            <div class="list-group-item-heading">
+              <h6>Created date</h6>
+            </div>
+            <div *ngIf="item.createdDate">
+              {{item.createdDate | date:short}}
+            </div>
+            <div *ngIf="!item.createdDate">
+              -
+            </div>
+          </div>
+
 
           <!--View and options buttons-->
           <div class="col-md-2 col-sm-12">
