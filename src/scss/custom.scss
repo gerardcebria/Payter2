@@ -60,6 +60,12 @@
   margin-right: 5px;
   height: 50px;
  }
+.filter-separator{
+  border-left: 1px solid grey;
+  margin-left: 15px;
+  margin-right: 5px;
+  height: 30px;
+}
 
 .list-group-item-id{
   margin-top: 10px;
@@ -95,4 +101,42 @@
 .show {
   display: block;
 }
+.active-filters{
+  margin-top: 10px;
+}
+.active-filters li{
+  display: inline;
+  text-decoration: none;
+  border-radius:3px;
+	border:1px solid #0b0e07;
+  display:inline-block;
+  background-color: #00659c;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+  
+}
 
+.search-options{
+  box-sizing:border-box;
+}
+
+.icon-filter{
+  margin-top: 8px;
+  margin-left: 5px;
+  font-size: 20px !important;
+
+}
+
+.text-filter{
+  font-size: 1em;
+  margin-top: 0.3em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 2em;
+  font-weight: bold;
+}

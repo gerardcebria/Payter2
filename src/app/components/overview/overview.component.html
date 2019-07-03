@@ -2,17 +2,81 @@
   <div class="card">
     <div class="card-header">
       <h1>Overview of the items</h1>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="input-group">
+                <div class="text-filter">Short by:</div>
+                <select class="form-control search-options">
+                  <option>Name</option>
+                  <option>Id</option>
+                  <option>Description</option>
+                  <option>Reference code</option>
+                  <option>Data Created</option>
+                </select>
+                <div class="input-group-append">
+                  <i class="fa fa-sort icon-filter"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="input-group">
+                <input type="text" class="form-control search-slt" placeholder="Select creation data">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fa fa-calendar"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="col-lg-1 col-md-1"></div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="input-group">
+                <select class="form-control search-options" [(ngModel)]="filterSelect">
+                  <option>Name</option>
+                  <option>Id</option>
+                  <option>Description</option>
+                  <option>Reference code</option>
+                  <option>Data Created</option>
+                </select>
+                <input type="text" class="form-control" id="filterValue" placeholder="Search this blog"
+                  [(ngModel)]="filterValue">
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" (click)="searchByFilter()">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <ul class="active-filters" *ngFor="let filter of filterList">
+          <li class="" (click)="deleteFilter(filter)">
+            {{filter.filter}}: {{filter.value}}
+          </li>
+        </ul>
+      </div>
+
+
+
     </div>
     <ul class="list-group list-group-flush" *ngFor="let item of $items | async, let idx = index">
-
       <li class="list-group-item list-group-item-action">
         <div class="row">
+          <!--Id field-->
           <div class="list-group-item-id">
             {{item.id}}
           </div>
           <div class="list-separator">
           </div>
-          <div class="col-md-1">
+          <!--Name field-->
+          <div class="col-md-1 col-sm-12">
             <div class="list-group-item-heading">
               <h5>Name</h5>
             </div>
@@ -20,7 +84,8 @@
               {{item.name}}
             </div>
           </div>
-          <div class="col-md-3">
+          <!--Description field-->
+          <div class="col-md-3 col-sm-12">
             <div class="list-group-item-heading">
               <h6>Description</h6>
             </div>
@@ -28,7 +93,8 @@
               {{item.description}}
             </div>
           </div>
-          <div class="col-md-2">
+          <!--Date field-->
+          <div class="col-md-2 col-sm-12">
             <div class="list-group-item-heading">
               <h6>Created date</h6>
             </div>
@@ -39,7 +105,8 @@
               -
             </div>
           </div>
-          <div class="col-md-3">
+          <!--Reference field-->
+          <div class="col-md-3 col-sm-12">
             <div class="list-group-item-heading">
               <h6>Reference code</h6>
             </div>
@@ -51,22 +118,17 @@
             </div>
           </div>
 
-          <div class="col-md-2">
-
-            <button class="btn btn-outline-dark" (click)="onSelectItem(item.id)">View</button>
-                <span class="options-icon fa fa-ellipsis-v" data-toggle="dropdown" id="{{idx}}" (click)=" arrayShow[idx]=! arrayShow[idx]"></span>
+          <!--View and options buttons-->
+          <div class="col-md-2 col-sm-12">
+            <button class="btn btn-outline-dark" (click)="onSelectItem(item.id)"><i class="fa fa-eye"></i> View</button>
+            <span class="options-icon fa fa-ellipsis-v" data-toggle="dropdown"
+              (click)=" arrayShow[idx]=! arrayShow[idx]"></span>
             <div class="dropdown">
               <div [ngClass]=" arrayShow[idx] ? 'dropdown-menu show' : 'dropdown-menu'">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#" (click)="deleteItem(item.id)">Delete Item</a>
               </div>
             </div>
-
           </div>
-
-
-
         </div>
       </li>
 
